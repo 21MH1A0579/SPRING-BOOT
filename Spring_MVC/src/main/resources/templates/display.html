@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ .odd{
+    background-color:cyan;
+    
+ }
+ .even{
+ background-color:green;
+ color:white;
+ }
+ 
+ 
+</style>
+</head>
+<body>
+<table border=1>
+   <tr th:each="data,cnt:${data}" th:classappend="${cnt.odd}?'odd':'even'">
+    <td th:text="${cnt.count}"></td>
+    <td th:text="${data.id}"></td>
+     <td th:text="${data.name}"></td>
+      <td th:text="${data.branch}"></td>
+       <td th:text="${data.college}"></td>
+        <td th:text="${data.city}"></td>
+        </tr>
+</table>
+</body>
+</html>

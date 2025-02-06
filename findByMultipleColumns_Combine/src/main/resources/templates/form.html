@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.Thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:object="${cseform}"  th:action="@{/register}" method="post">
+  
+      <input type="number" th:field="*{id}" placeholder="Enter ID">
+      <input type="text" th:field="*{name}" placeholder="Enter NAME">
+      <input type="text" th:field="*{branch}" placeholder="Enter BRANCH">
+      <input type="text" th:field="*{city}" placeholder="Enter CITY">
+      <input type="submit">   
+</form>
+</body>
+</html>

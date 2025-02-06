@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeLeaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image:url('https://images.unsplash.com/photo-1490713230272-bf236b61ad43?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            color: #333;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Form Container */
+        .container {
+            background-color:transparent;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Form Header */
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color:white;
+            text-align: center;
+        }
+
+        /* Label Styling */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color:white;
+        }
+
+        /* Input and Select Styling */
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            color: #2c3e50;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script th:inline="javascript">
+    function updateFields() {
+    	 const students = /*[[${allstudents}]]*/ [];
+    	console.log(students);
+    	 const studentId = document.getElementById('studentId').value;
+         const selectedStudent = students.find(student => student.id == studentId);
+         
+         if (selectedStudent) {
+             document.getElementById('name').value = selectedStudent.name;
+             document.getElementById('branch').value = selectedStudent.branch;
+             document.getElementById('college').value = selectedStudent.college;
+             document.getElementById('city').value = selectedStudent.city;
+         } else {
+             // Clear fields if no student is selected
+             document.getElementById('name').value = '';
+             document.getElementById('branch').value = '';
+             document.getElementById('college').value = '';
+             document.getElementById('city').value = '';
+         }
+    }
+    </script>
+    
+</head>
+<body>
+
+<div class="container">
+    <h2>Update Student Details</h2>
+    
+    <form th:action="@{/updatestudent}" method="post">
+        <div class="form-group">
+            <label for="studentId">Select Student ID:</label>
+            <select id="studentId" name="studentId" required onchange="updateFields()">
+                <option value="">-- Select Student ID --</option>
+                <!-- Iterate through all students to create options -->
+                <th:block  th:each="student : ${allstudents}">
+                    <option th:value="${student.id}" th:text="${student.id}"></option>
+                </th:block>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" required>
+        </div>
+
+        <div class="form-group">
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+
+        <button type="submit">Update Student</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('https://images.unsplash.com/photo-1534513186949-201bfdfed2d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Aligns content towards the top */
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color:transparent;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: green;
+            color:black;
+        }
+
+        .oddrow {
+            background-color:black;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Students Information</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>College</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="eachstudent, meta: ${allstudents}" th:classappend="${meta.odd}?'oddrow':'evenrow'">
+                    <td th:text="${meta.count}"></td>
+                    <td th:text="${eachstudent.id}"></td>
+                    <td th:text="${eachstudent.name}"></td>
+                    <td th:text="${eachstudent.branch}"></td>
+                    <td th:text="${eachstudent.college}"></td>
+                    <td th:text="${eachstudent.city}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${modelcse}" method=post>
+<input type="text" th:field="*{name}" placeholder="Enter name">
+<input type="text" th:field="*{branch}" placeholder="Enter Branch">
+<input type="text" th:field="*{college}" placeholder="Enter collge">
+<input type="submit">
+</form>
+<h1 th:text="${modelcse.name}"></h1>
+<h1 th:text="${modelcse.branch}"></h1>
+<h1 th:text="${modelcse.college}"></h1>
+
+</body>
+</html>

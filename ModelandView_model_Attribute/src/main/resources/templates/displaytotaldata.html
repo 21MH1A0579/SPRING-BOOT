@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Data Table</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+    }
+
+    table {
+        width: 80%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    .head {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+
+    .odd {
+        background-color: #f9f9f9;
+    }
+
+    .even {
+        background-color: #2ecc71;
+        color: #fff;
+    }
+
+    tr:hover {
+        background-color: #3498db;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        border-bottom: 2px solid #2c3e50;
+    }
+
+    /* Add subtle hover effects */
+    td:hover {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<table>
+    <tr class="head">
+        <th>S.No</th>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>BRANCH</th>
+        <th>COLLEGE</th>
+    </tr>
+    <tr th:each="data, cnt : ${totaldata}" th:classappend="${cnt.odd} ? 'odd' : 'even'">
+        <td th:text="${cnt.count}"></td>
+        <td th:text="${data.id}"></td>
+        <td th:text="${data.name}"></td>
+        <td th:text="${data.branch}"></td>
+        <td th:text="${data.college}"></td>
+    </tr>
+</table>
+</body>
+</html>

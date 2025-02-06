@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+     <table border=1>
+     <tr>
+     <td>S.No</td>
+       <td>ID</td>
+         <td>Name</td>
+           <td>Branch</td>
+             <td>Marks</td>
+     </tr>
+     <tr th:each="marks,sta:${data}" >
+     <td th:text="${sta.count}"></td>
+     <td th:text="${marks.id}"></td>
+        <td th:text="${marks.name}"></td>
+           <td th:text="${marks.branch}"></td>
+              <td th:text="${marks.marks}"></td>
+ 
+     </tr>
+     </table>
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+<tr th:each="csedata:${data}">
+<td th:text="${csedata.id}"></td>
+<td th:text="${csedata.name}"></td>
+<td th:text="${csedata.branch}"></td>
+<td th:text="${csedata.college}"></td>
+</tr>
+</table>
+</body>
+</html>

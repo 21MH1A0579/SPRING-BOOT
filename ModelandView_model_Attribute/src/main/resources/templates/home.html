@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(45deg, #f0f4f8, #6dd5ed, #2193b0);
+    background-size: 400% 400%;
+    animation: gradient-bg 10s ease infinite;
+}
+
+h1 {
+    color: #00698f;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: slide-down 2s ease-out;
+}
+
+a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+a:hover {
+    background-color: #3e8e41;
+    transform: scale(1.1);
+}
+
+/* Keyframe Animations */
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+<h1>WELCOME TO HOME PAGE</h1>
+<a th:href="@{/form}">CLICK HERE TO GO FORM PAGE</a>
+</body>
+</html>

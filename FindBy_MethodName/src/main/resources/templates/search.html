@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:url('https://images.unsplash.com/photo-1547628641-ec2098bb5812?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+        }
+        form {
+            background-color:transparent;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Form Header */
+        form h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Label Styling */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+
+        /* Input and Select Styling */
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            color: #2c3e50;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            form h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <form th:action="@{/searchsubmit}" method="post">
+        <h1>Search</h1>
+
+        <label for="dropdown">Select Search Option:</label>
+        <select name="ddvalue" id="dropdown">
+            <option value="id">By ID</option>
+            <option value="name">By Name</option>
+            <option value="branch">By Branch</option>
+            <option value="college">By College</option>
+            <option value="city">By City</option>
+        </select>
+
+        <label for="tf">Enter Search Value:</label>
+        <input type="text" name="tfvalue" id="tf" placeholder="Enter value here" />
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

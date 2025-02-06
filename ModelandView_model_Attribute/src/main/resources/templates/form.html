@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  color: #00698f;
+  animation: fade-in 2s;
+}
+
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: slide-in 2s;
+}
+
+input[type="text"] {
+  width: 75%;
+  align-content:center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<h1>WELCOME TO FORM PAGE</h1>
+<form th:action="@{/register}" th:object="${modeldata}" method="post">
+<input type="text" th:field="*{id}" placeholder="Enter ID">
+<input type="text" th:field="*{name}" placeholder="Enter Name">
+<input type="text" th:field="*{branch}" placeholder="Enter Branch">
+<input type="text" th:field="*{college}" placeholder="Enter College">
+<input type="submit">
+</form>
+</body>
+</html>

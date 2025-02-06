@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+<tr th:object="${datas}">
+<td th:text="*{id}"></td>
+<td th:text="*{name}"></td>
+<td th:text="*{branch}"></td>
+<td th:text="*{college}"></td>
+<td> <span th:if="${datas.gender}=='male'  " th:text='notselected'></span>
+<span th:if="${datas.gender}=='female'  " th:text='selected'></span>
+</td>
+</tr>
+</table>
+</body>
+</html>

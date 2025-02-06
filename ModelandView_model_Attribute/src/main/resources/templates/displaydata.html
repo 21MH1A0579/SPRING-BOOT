@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+<tr th:object="${data}">
+<td th:text="*{id}"></td>
+<td th:text="*{name}"></td>
+<td th:text="*{branch}"></td>
+<td th:text="*{college}"></td>
+</tr>
+</table>
+</body>
+</html>
